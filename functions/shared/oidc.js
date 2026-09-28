@@ -1,8 +1,4 @@
 
-import { parseCookie, serializeSessionCookie } from "../../shared/cookies.js";
-import { providers } from "../../shared/providers.js";
-
-
 export async function onRequestGet(context) {
   const url = new URL(context.request.url);
   const provider = context.params.provider;
