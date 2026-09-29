@@ -60,7 +60,7 @@ export async function onRequestGet(context) {
     body: tokenParams.toString()
   });
 
-  if (!tokenResponse.ok) return new Response("Falha na troca de tokens", { status: 400, headers: { "Cache-Control": "no-store" } });
+  if (!tokenResponse.ok) return new Response(await tokenResponse.text(), { status: 400, headers: { "Cache-Control": "no-store" } });
   const tokens = await tokenResponse.json();
 
   let sessionIssuer, sessionSubject, sessionEmail, sessionName;
